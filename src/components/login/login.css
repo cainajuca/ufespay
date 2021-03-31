@@ -1,7 +1,23 @@
-input {
-    margin: 10px;
+#login {
+    margin-left: 10px;
+    color: #fff;
+    background-color: #5047B7;
+}
+
+.TextField {
+    margin-bottom: 10px;
 }
 
 form {
-    margin: 20px;
+
+    display: flex;
+
+    padding: 10px;
+
+    flex-direction: column;
+}
+
+.Button {
+    width: 200px;
+    margin-bottom: 100px;
 }

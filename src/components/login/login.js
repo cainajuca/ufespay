@@ -19,7 +19,9 @@ class Login extends Component {
             // retorno de validação do backend (caso a validação ocorra lá)
             success: '',
             id: '',
-            errorMessages: []
+            errorMessages: [],
+
+            showLoginForm: false
         }
     }
 
@@ -34,14 +36,20 @@ class Login extends Component {
 
         event.preventDefault(); // evitar que abra uma nova pagina
     }
+    
 
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
+    handleTextFieldChange = (field, event) => {
         this.setState({
-            [name]: value
+            [field]: event.target.value
         })
     }
+
+    handleLoginForm = () => {
+        this.setState({
+            showLoginForm: true
+        })
+    }
+
 
     render() {
         return (
@@ -49,57 +57,69 @@ class Login extends Component {
 
                 <h1>Bem vindo de volta</h1>
 
-                <Button variant="contained" color="secondary" type="submit">
-                    Faça seu login
-                </Button>
+                {
+                    this.state.showLoginForm ?
+                    (
+                        <form onSubmit = {this.handleSubmit}>
 
-                <form onSubmit = {this.handleSubmit}>
+                            <div className="TextField">
+                                <TextField
+                                    variant="outlined"
+                                    color="secondary"
+                                    label="Nome"
+                                    placeholder="Nome completo"
+                                    type="text"
+                                    required
+                                    value={this.state.name}
+                                    onChange={(e) => this.handleTextFieldChange("name", e)}
+                                />
+                            </div>
 
-                    <TextField 
-                        variant="outlined"
-                        color="secondary"
-                        label="Nome"
-                        placeholder="Nome completo"
-                        required
-                    />
+                            <div className="TextField">
+                                <TextField
+                                    variant="outlined"
+                                    color="secondary"
+                                    label="Email"
+                                    placeholder="exemplo@exemplo.com"
+                                    type="text"
+                                    required
+                                    value={this.state.email}
+                                    onChange={(e) => this.handleTextFieldChange("email", e)}
+                                />
+                            </div>
 
-                    <input
-                        placeholder="Nome"
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={this.state.name}
-                        onChange={this.handleInputChange}
-                    />
+                            <div className="TextField">
+                                <TextField
+                                    variant="outlined"
+                                    color="secondary"
+                                    label="Senha"
+                                    placeholder="Senha"
+                                    type="password"
+                                    required
+                                    value={this.state.password}
+                                    onChange={(e) => this.handleTextFieldChange("password", e)}
+                                />
+                            </div>
 
-                    <input
-                        placeholder="Email"
-                        type="text"
-                        id="email"
-                        name="email"
-                        required
-                        value={this.state.email}
-                        onChange={this.handleInputChange}
-                    />
+                            <Button className="Button" variant="contained" color="secondary" type="submit">
+                                Entrar
+                            </Button>
 
-                    <input
-                        placeholder="Senha"
-                        type="password"
-                        id="password"
-                        name="password"
-                        required
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <Button variant="contained" color="secondary" type="submit">
-                        Entrar
-                    </Button>
-
-                </form>
-
-                <h1>{this.state.name}</h1>
+                        </form>
+                    )
+                    :
+                    (
+                        <Button
+                            className="Button"
+                            variant="contained"
+                            color="secondary"
+                            type="button"
+                            onClick={this.handleLoginForm}
+                            >
+                            Faça seu login
+                        </Button>
+                    )
+                }
 
             </div>
         )

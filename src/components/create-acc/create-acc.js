@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-import Button from '@material-ui/core/Button'
+import './create-acc.css'
+
+import { Button, TextField, InputAdornment } from '@material-ui/core'
+
+import { AccountCircle } from '@material-ui/icons'
+import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
 
 class CreateAcc extends Component {
 
@@ -12,9 +18,7 @@ class CreateAcc extends Component {
             name: '',
             email: '',
             password: '',
-            repPassword,
-            
-
+            repPassword: '',
             
             success: '',
             id: '',
@@ -63,16 +67,15 @@ class CreateAcc extends Component {
     }
 
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
+    handleTextFieldChange = (field, event) => {
         this.setState({
-            [name]: value
+            [field]: event.target.value
         })
     }
 
     render() {
         return (
-            <div id="login">
+            <div id="create-acc">
 
                 <h1>UfesPay</h1>
 
@@ -80,53 +83,93 @@ class CreateAcc extends Component {
 
                 <form onSubmit = {this.handleSubmit}>
 
-                    <input
-                        placeholder="Nome"
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={this.state.name}
-                        onChange={this.handleInputChange}
-                    />
+                    <div className="TextField">
+                        <TextField
+                            className="TextField"
+                            variant="filled"
+                            color="secondary"
+                            label="Nome"
+                            placeholder="Nome completo"
+                            type="text"
+                            required
+                            value={this.state.name}
+                            onChange={(e) => this.handleTextFieldChange("name", e)}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                    <AccountCircle />
+                                    </InputAdornment>
+                                )
+                            }} 
+                        />
+                    </div>
 
-                    <input
-                        placeholder="Email"
-                        type="text"
-                        id="email"
-                        name="email"
-                        required
-                        value={this.state.email}
-                        onChange={this.handleInputChange}
-                    />
+                    <div className="TextField">
+                        <TextField
+                            className="TextField"
+                            variant="filled"
+                            color="secondary"
+                            label="Email"
+                            placeholder="exemplo@exemplo.com"
+                            type="text"
+                            required
+                            value={this.state.email}
+                            onChange={(e) => this.handleTextFieldChange("email", e)}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                    <EmailIcon />
+                                    </InputAdornment>
+                                )
+                            }} 
+                        />
+                    </div>
 
-                    <input
-                        placeholder="Senha"
-                        type="password"
-                        id="password"
-                        name="password"
-                        required
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                    />
+                    <div className="TextField">
+                        <TextField
+                            variant="filled"
+                            color="secondary"
+                            label="Senha"
+                            placeholder="Senha"
+                            type="password"
+                            required
+                            value={this.state.password}
+                            onChange={(e) => this.handleTextFieldChange("password", e)}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                    <LockIcon />
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                    </div>
 
-                    <input
-                        placeholder="Confirme a senha"
-                        type="password"
-                        id="rep-password"
-                        name="rep-password"
-                        required
-                        value={this.state.repPassword}
-                        onChange={this.handleInputChange}
-                    />
+                    <div className="TextField">
+                        <TextField
+                            variant="filled"
+                            color="secondary"
+                            label="Confirme a senha"
+                            placeholder="Confirme a senha"
+                            type="password"
+                            required
+                            value={this.state.password}
+                            onChange={(e) => this.handleTextFieldChange("repPassword", e)}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                    <LockIcon />
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                    </div>
 
-                    <Button variant="contained" color="secondary" type="submit">
+                    <Button className="Button" variant="contained" color="secondary" type="submit">
                         Cadastrar
                     </Button>
 
                 </form>
-
-                <h1>{this.state.success}</h1>
 
             </div>
         )
