@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router'
 
 import './login.css'
 
@@ -21,7 +22,8 @@ class Login extends Component {
             id: '',
             errorMessages: [],
 
-            showLoginForm: false
+            showLoginForm: false,
+            toNext: false
         }
     }
 
@@ -34,7 +36,15 @@ class Login extends Component {
             success: 'deu bom'
         })
 
-        event.preventDefault(); // evitar que abra uma nova pagina
+        // autorização aqui
+        this.props.auth(false)
+        // this.props.auth(false)
+
+        this.setState({
+            toNext: this.props.auth
+        })
+
+        event.preventDefault()
     }
     
 
@@ -105,7 +115,19 @@ class Login extends Component {
                                 Entrar
                             </Button>
 
+                            { this.state.toNext ?
+                                (
+                                    <Navigate to="home" />
+                                )
+                                :
+                                (
+                                    <></>
+                                )
+                        
+                            }
+
                         </form>
+
                     )
                     :
                     (

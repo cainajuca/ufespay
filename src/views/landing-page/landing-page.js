@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import './landing-page.css'
 
 import Login from '../../components/login/login'
 import CreateAcc from '../../components/create-acc/create-acc'
 
-class LandingPage extends Component {
+function LandingPage(props) {
 
-    render() {
-        return (
-            <div id="landing-page">
+    return (
+        <div id="landing-page">
 
-                <CreateAcc />
+            <CreateAcc />
 
-                <Login />
+            <Login auth={(login) => {props.callback(login)}}/>
 
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default LandingPage;

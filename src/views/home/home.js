@@ -6,9 +6,7 @@ class Home extends Component {
         return (
             <div id="home">
 
-                <h1>Formulário de Ocorrência</h1>
-
-                <br />
+                <h1>Home</h1>
 
             </div>
         )
