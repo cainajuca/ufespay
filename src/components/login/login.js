@@ -29,16 +29,15 @@ class Login extends Component {
 
     handleSubmit = event => {
 
-        const PORT = "3333"
-        const URL = "http://localhost:"
+        // const PORT = "3333"
+        // const URL = "http://localhost:"
 
         this.setState({
             success: 'deu bom'
         })
 
-        // autorização aqui
-        this.props.auth(false)
-        // this.props.auth(false)
+        // logica de autorização aqui
+        this.props.auth(true)
 
         this.setState({
             toNext: this.props.auth
@@ -64,85 +63,88 @@ class Login extends Component {
     render() {
         return (
             <div id="login">
+                <div id="form-login">
+                    <h1>Bem vindo de volta</h1>
 
-                <h1>Bem vindo de volta</h1>
+                    {
+                        this.state.showLoginForm ?
+                        (
+                            <form onSubmit = {this.handleSubmit}>
 
-                {
-                    this.state.showLoginForm ?
-                    (
-                        <form onSubmit = {this.handleSubmit}>
+                                <div className="TextField">
+                                    <TextField
+                                        className="TextField"
+                                        variant="outlined"
+                                        color="secondary"
+                                        label="Nome"
+                                        placeholder="Nome completo"
+                                        type="text"
+                                        required
+                                        value={this.state.name}
+                                        onChange={(e) => this.handleTextFieldChange("name", e)}
+                                    />
+                                </div>
 
-                            <div className="TextField">
-                                <TextField
-                                    variant="outlined"
-                                    color="secondary"
-                                    label="Nome"
-                                    placeholder="Nome completo"
-                                    type="text"
-                                    required
-                                    value={this.state.name}
-                                    onChange={(e) => this.handleTextFieldChange("name", e)}
-                                />
-                            </div>
+                                <div className="TextField">
+                                    <TextField
+                                        className="TextField"
+                                        variant="outlined"
+                                        color="secondary"
+                                        label="Email"
+                                        placeholder="exemplo@exemplo.com"
+                                        type="text"
+                                        required
+                                        value={this.state.email}
+                                        onChange={(e) => this.handleTextFieldChange("email", e)}
+                                    />
+                                </div>
 
-                            <div className="TextField">
-                                <TextField
-                                    variant="outlined"
-                                    color="secondary"
-                                    label="Email"
-                                    placeholder="exemplo@exemplo.com"
-                                    type="text"
-                                    required
-                                    value={this.state.email}
-                                    onChange={(e) => this.handleTextFieldChange("email", e)}
-                                />
-                            </div>
+                                <div className="TextField">
+                                    <TextField
+                                        className="TextField"
+                                        variant="outlined"
+                                        color="secondary"
+                                        label="Senha"
+                                        placeholder="Senha"
+                                        type="password"
+                                        required
+                                        value={this.state.password}
+                                        onChange={(e) => this.handleTextFieldChange("password", e)}
+                                    />
+                                </div>
 
-                            <div className="TextField">
-                                <TextField
-                                    variant="outlined"
-                                    color="secondary"
-                                    label="Senha"
-                                    placeholder="Senha"
-                                    type="password"
-                                    required
-                                    value={this.state.password}
-                                    onChange={(e) => this.handleTextFieldChange("password", e)}
-                                />
-                            </div>
+                                <Button className="Button" variant="contained" color="secondary" type="submit">
+                                    Entrar
+                                </Button>
 
-                            <Button className="Button" variant="contained" color="secondary" type="submit">
-                                Entrar
+                                { this.state.toNext ?
+                                    (
+                                        <Navigate to="home" />
+                                    )
+                                    :
+                                    (
+                                        <div></div>
+                                    )
+                                }
+
+                            </form>
+
+                        )
+                        :
+                        (
+                            <Button
+                                className="Button"
+                                variant="contained"
+                                color="secondary"
+                                type="button"
+                                onClick={this.handleLoginForm}
+                                >
+                                Faça seu login
                             </Button>
+                        )
+                    }
 
-                            { this.state.toNext ?
-                                (
-                                    <Navigate to="home" />
-                                )
-                                :
-                                (
-                                    <></>
-                                )
-                        
-                            }
-
-                        </form>
-
-                    )
-                    :
-                    (
-                        <Button
-                            className="Button"
-                            variant="contained"
-                            color="secondary"
-                            type="button"
-                            onClick={this.handleLoginForm}
-                            >
-                            Faça seu login
-                        </Button>
-                    )
-                }
-
+                </div>
             </div>
         )
     }

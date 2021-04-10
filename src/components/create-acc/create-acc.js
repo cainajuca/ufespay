@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './create-acc.css'
 
-import { Button, TextField, InputAdornment } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core' // InputAdornment
 
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // import EmailIcon from '@material-ui/icons/Email';
@@ -28,8 +28,8 @@ class CreateAcc extends Component {
 
     handleSubmit = event => {
 
-        const PORT = "3333"
-        const URL = "http://localhost:"
+        // const PORT = "3333"
+        // const URL = "http://localhost:"
 
         // const requestOptions = {
         //     method: "post",
@@ -76,101 +76,103 @@ class CreateAcc extends Component {
     render() {
         return (
             <div id="create-acc">
+                <div id="form-create-acc">
+                    <h1>UfesPay</h1>
 
-                <h1>UfesPay</h1>
+                    <h3>Cadastre-se!</h3>
 
-                <h3>Cadastre-se!</h3>
+                    <form onSubmit = {this.handleSubmit}>
 
-                <form onSubmit = {this.handleSubmit}>
+                        <div className="TextField">
+                            <TextField
+                                className="TextField"
+                                variant="filled"
+                                color="secondary"
+                                label="Nome"
+                                placeholder="Nome completo"
+                                type="text"
+                                required
+                                value={this.state.name}
+                                onChange={(e) => this.handleTextFieldChange("name", e)}
+                                // InputProps={{
+                                //     startAdornment: (
+                                //         <InputAdornment position="start">
+                                //         <AccountCircleIcon />
+                                //         </InputAdornment>
+                                //     )
+                                // }} 
+                            />
+                        </div>
 
-                    <div className="TextField">
-                        <TextField
-                            className="TextField"
-                            variant="filled"
-                            color="secondary"
-                            label="Nome"
-                            placeholder="Nome completo"
-                            type="text"
-                            required
-                            value={this.state.name}
-                            onChange={(e) => this.handleTextFieldChange("name", e)}
-                            // InputProps={{
-                            //     startAdornment: (
-                            //         <InputAdornment position="start">
-                            //         <AccountCircleIcon />
-                            //         </InputAdornment>
-                            //     )
-                            // }} 
-                        />
-                    </div>
+                        <div className="TextField">
+                            <TextField
+                                className="TextField"
+                                variant="filled"
+                                color="secondary"
+                                label="Email"
+                                placeholder="exemplo@exemplo.com"
+                                type="text"
+                                required
+                                value={this.state.email}
+                                onChange={(e) => this.handleTextFieldChange("email", e)}
+                                // InputProps={{
+                                //     startAdornment: (
+                                //         <InputAdornment position="start">
+                                //         <EmailIcon />
+                                //         </InputAdornment>
+                                //     )
+                                // }} 
+                            />
+                        </div>
 
-                    <div className="TextField">
-                        <TextField
-                            className="TextField"
-                            variant="filled"
-                            color="secondary"
-                            label="Email"
-                            placeholder="exemplo@exemplo.com"
-                            type="text"
-                            required
-                            value={this.state.email}
-                            onChange={(e) => this.handleTextFieldChange("email", e)}
-                            // InputProps={{
-                            //     startAdornment: (
-                            //         <InputAdornment position="start">
-                            //         <EmailIcon />
-                            //         </InputAdornment>
-                            //     )
-                            // }} 
-                        />
-                    </div>
+                        <div className="TextField">
+                            <TextField
+                                className="TextField"
+                                variant="filled"
+                                color="secondary"
+                                label="Senha"
+                                placeholder="Senha"
+                                type="password"
+                                required
+                                value={this.state.password}
+                                onChange={(e) => this.handleTextFieldChange("password", e)}
+                                // InputProps={{
+                                //     startAdornment: (
+                                //         <InputAdornment position="start">
+                                //         <LockIcon />
+                                //         </InputAdornment>
+                                //     )
+                                // }}
+                            />
+                        </div>
 
-                    <div className="TextField">
-                        <TextField
-                            variant="filled"
-                            color="secondary"
-                            label="Senha"
-                            placeholder="Senha"
-                            type="password"
-                            required
-                            value={this.state.password}
-                            onChange={(e) => this.handleTextFieldChange("password", e)}
-                            // InputProps={{
-                            //     startAdornment: (
-                            //         <InputAdornment position="start">
-                            //         <LockIcon />
-                            //         </InputAdornment>
-                            //     )
-                            // }}
-                        />
-                    </div>
+                        <div className="TextField">
+                            <TextField
+                                className="TextField"
+                                variant="filled"
+                                color="secondary"
+                                label="Confirme a senha"
+                                placeholder="Confirme a senha"
+                                type="password"
+                                required
+                                value={this.state.password}
+                                onChange={(e) => this.handleTextFieldChange("repPassword", e)}
+                                // InputProps={{
+                                //     startAdornment: (
+                                //         <InputAdornment position="start">
+                                //         <LockIcon />
+                                //         </InputAdornment>
+                                //     )
+                                // }}
+                            />
+                        </div>
 
-                    <div className="TextField">
-                        <TextField
-                            variant="filled"
-                            color="secondary"
-                            label="Confirme a senha"
-                            placeholder="Confirme a senha"
-                            type="password"
-                            required
-                            value={this.state.password}
-                            onChange={(e) => this.handleTextFieldChange("repPassword", e)}
-                            // InputProps={{
-                            //     startAdornment: (
-                            //         <InputAdornment position="start">
-                            //         <LockIcon />
-                            //         </InputAdornment>
-                            //     )
-                            // }}
-                        />
-                    </div>
+                        <Button className="Button" variant="contained" color="secondary" type="submit">
+                            Cadastrar
+                        </Button>
 
-                    <Button className="Button" variant="contained" color="secondary" type="submit">
-                        Cadastrar
-                    </Button>
-
-                </form>
-
+                    </form>
+                </div>
             </div>
         )
     }

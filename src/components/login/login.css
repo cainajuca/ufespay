@@ -1,7 +1,17 @@
 #login {
-    margin-left: 10px;
     color: #fff;
     background-color: #5047B7;
+
+    
+}
+
+#form-login {
+
+    padding: 20px;
+
+    width: 500px;
+
+    margin: 40px auto 0;
 }
 
 .TextField {
@@ -12,12 +22,14 @@ form {
 
     display: flex;
 
-    padding: 10px;
-
     flex-direction: column;
 }
 
-.Button {
+.Button, .TextField{
+    width: 100%;
+}
+
+/* .Button {
     width: 200px;
     margin-bottom: 100px;
-}
+} */

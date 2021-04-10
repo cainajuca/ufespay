@@ -8,23 +8,29 @@ import ProtectedRoute from './components/privateRoute'
 
 function App() {
 
-  const [auth, setAuth] = useState(false)
+  const key = "autoriza"
+  
+  const [auth, setAuth] = useState(JSON.parse(localStorage.getItem(key) || "false"))
+  
+  function authCallback(login) {
 
-  function authCallback(auth) {
-    setAuth(auth)
+    setAuth(login)
+
   }
+
+  useEffect(() => {
+    localStorage.setItem(key, auth)
+  }, [auth])
 
   return (
     <div className="App">
-
-      {auth ? <h1>verdadeiro</h1> : <h1>falso</h1>}
 
       <BrowserRouter>
       
         <Routes>
           <Route path='/' element={<LandingPage callback={(login) => authCallback(login)}/>} />
 
-          <ProtectedRoute path="home" element={<Home />} auth={auth}/>
+          <ProtectedRoute path="home" element={<Home />} authorize={auth}/>
 
         </Routes>
 
