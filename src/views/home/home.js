@@ -1,115 +1,42 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router'
+import React from 'react';
 
-import Button from '@material-ui/core/Button'
+import './home.css'
 
 import Navtop from '../../components/navtop/navtop'
-import Navleft from '../../components/navleft/navleft'
+// import Navleft from '../../components/navleft/navleft'
+import Notification from '../../components/notification/notification'
 
 function Home(props) {
-
-    function handleLogout() {
-
-        console.log("Logout pfv")
-
-        localStorage.setItem("autoriza", false)
-
-        setGoNext(true)
-    }
-
-    const [goNext, setGoNext] = useState(false)
 
     return (
         <div id="home">
 
             <Navtop />
-            <Navleft />
+            {/* <Navleft /> */}
 
-            <Button
-                className="Button"
-                variant="contained"
-                color="secondary"
-                type="button"
-                onClick={handleLogout}
-                >
-                Sair
-            </Button>
+            <div className="home-body">
+                <div className="news">
+                    <h2>Últimas Notificações</h2>
 
-            { goNext ?
-                (
-                    <Navigate to={"/"} />
-                )
-                :
-                (
-                    <div></div>
-                )
-            }
+                    <Notification />
+                    <Notification />
+                    <Notification />
+                    <Notification />
+
+                    {/* 
+                        pesquisar como expor lista d json
+                        tem no occurrence
+                    */}
+
+                </div>
+
+                <div className="profile">
+                    <h1>- perfil -</h1>
+                </div>
+            </div>
             
-
         </div>
     )
 }
 
-
-
-
-
-
-/*
-
-class Home extends Component {
-
-    // Boolean(localStorage.getItem("autoriza") || "false")
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            goToLandingPage: false
-        }
-    }
-
-    handleLogout = () => {
-
-        console.log("Logout pfv")
-
-        this.setState({
-            goToLandingPage: true
-        })
-    }
-
-    render() {
-        return (
-            <div id="home">
-
-                <Navtop />
-
-                <Button
-                    className="Button"
-                    variant="contained"
-                    color="secondary"
-                    type="button"
-                    onClick={this.handleLogout}
-                    >
-                    Sair
-                </Button>
-
-
-                {
-                    this.state.goToLandingPage ?
-                    (
-                        <Navigate to={"/"} />
-                    )
-                    :
-                    (
-                        <div>ta em casa</div>
-                    )
-                }
-                
-
-            </div>
-        )
-    }
-}
-*/
 export default Home;

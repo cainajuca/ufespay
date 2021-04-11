@@ -117,15 +117,7 @@ class Login extends Component {
                                     Entrar
                                 </Button>
 
-                                { this.state.toNext ?
-                                    (
-                                        <Navigate to="home" />
-                                    )
-                                    :
-                                    (
-                                        <div></div>
-                                    )
-                                }
+                                { this.state.toNext && <Navigate to="home" /> }
 
                             </form>
 

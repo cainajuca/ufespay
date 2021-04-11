@@ -1,0 +1,22 @@
+.home-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home-body .news {
+    background-color: aqua;
+    padding: 0px 30px;
+    min-height: 810px;
+    height: 100%;
+}
+
+.home-body .profile {
+    background-color: rgb(255, 0, 200);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+h2 {
+    font-size: 40;
+}

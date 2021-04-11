@@ -1,12 +1,41 @@
-import React from 'react'
+import React from 'react';
 
-function Navtop() {
+import NavItem from '../navitem/navitem'
+import Menu from '../menu/menu'
 
-    return(
-        <nav>
-            <h1>Home</h1>
+import './navtop.css'
+
+import MenuIcon from '@material-ui/icons/Menu';
+
+export default function Navtop(props) {
+
+    return (
+        <nav className='navbar'>
+
+            <ul className='navbar-nav'>
+
+                <h1>UfesPay</h1>
+
+                {/* <NavItem icon={<ExitToAppIcon />}/> */}
+
+                <NavItem className="nav-item" icon={<MenuIcon />}>
+                    <Menu />
+                </NavItem>
+            </ul>
         </nav>
+        // <nav className='navbar'>
+
+        //     <ul className='navbar-nav'>
+
+        //         <h1>UfesPay</h1>
+
+        //         {/* <NavItem icon={<ExitToAppIcon />}/> */}
+
+        //         <NavItem icon={<MenuIcon />}>
+        //             <Menu />
+        //         </NavItem>
+        //     </ul>
+        // </nav>
     )
 }
 
-export default Navtop
