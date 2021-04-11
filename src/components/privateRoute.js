@@ -10,7 +10,7 @@ class ProtectedRoute extends Component {
                 {
                     this.props.authorize ?
                     (
-                        <Route path='home' element={this.props.element} />
+                        <Route path={this.props.path} element={this.props.element} />
                     )
                     :
                     (

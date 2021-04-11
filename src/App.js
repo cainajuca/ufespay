@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import LandingPage from './views/landing-page/landing-page'
 import Home from './views/home/home'
+
 import ProtectedRoute from './components/privateRoute'
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     localStorage.setItem(key, auth)
   }, [auth])
 
-
+  /*
   // seção para criar objetos vindos do backend
   const usuarios = [
     {
@@ -61,7 +62,7 @@ function App() {
     },
   ]
   // objetos criados
-
+  */
 
   return (
     <div className="App">
@@ -71,7 +72,15 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage callback={(login) => authCallback(login)}/>} />
 
-          <ProtectedRoute path="home" element={<Home />} authorize={auth}/>
+          <ProtectedRoute 
+            path="home" 
+            element={<Home page="front-page"/>} 
+            authorize={auth}/>
+
+          <ProtectedRoute
+            path="home/transfer-page" 
+            element={<Home page="transfer-page"/>} 
+            authorize={auth}/>
 
         </Routes>
 

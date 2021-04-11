@@ -13,12 +13,14 @@ export default function Menu(props) {
         <div className="menu">
 
             <MenuItem
+                whereTo="home/transfer-page"
                 leftIcon={<PaymentIcon />}
                 >Realizar Transferência
             </MenuItem>
 
 
             <MenuItem
+                whereTo=""
                 leftIcon={<ExitToAppIcon />}
                 >Sair
             </MenuItem>

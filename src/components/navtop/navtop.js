@@ -14,28 +14,13 @@ export default function Navtop(props) {
 
             <ul className='navbar-nav'>
 
-                <h1>UfesPay</h1>
-
-                {/* <NavItem icon={<ExitToAppIcon />}/> */}
+                <a href="/home" id="go-home">UfesPay</a>
 
                 <NavItem className="nav-item" icon={<MenuIcon />}>
                     <Menu />
                 </NavItem>
             </ul>
         </nav>
-        // <nav className='navbar'>
-
-        //     <ul className='navbar-nav'>
-
-        //         <h1>UfesPay</h1>
-
-        //         {/* <NavItem icon={<ExitToAppIcon />}/> */}
-
-        //         <NavItem icon={<MenuIcon />}>
-        //             <Menu />
-        //         </NavItem>
-        //     </ul>
-        // </nav>
     )
 }
 

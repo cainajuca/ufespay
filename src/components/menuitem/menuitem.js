@@ -4,14 +4,21 @@ import './menuitem.css'
 
 export default function MenuItem(props) {
 
-    function handleLogout() {
-        localStorage.setItem("autoriza", false)
+    function handleClick() {
+
+        if(props.whereTo === "") {
+            localStorage.setItem("autoriza", false)
+            return;
+        }
+
+        // "switch case" para outras possibilidades
+        
     }
 
     return (
         <div>
 
-            <a href="/" className="menu-item" onClick={handleLogout}>
+            <a href={"/"+props.whereTo} className="menu-item" onClick={handleClick}>
                 <span className="icon-left"> {props.leftIcon}</span>
 
                 { props.children }

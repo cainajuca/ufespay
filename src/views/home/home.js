@@ -3,36 +3,52 @@ import React from 'react';
 import './home.css'
 
 import Navtop from '../../components/navtop/navtop'
-// import Navleft from '../../components/navleft/navleft'
-import Notification from '../../components/notification/notification'
+
+import HomeNews from '../../components/home-news/home-news'
+import HomeProfile from '../../components/home-profile/home-profile'
+
+import Tranferencia from '../../components/transfer-encia/transfer-encia'
+import TransferHistory from '../../components/transfer-history/transfer-history'
 
 function Home(props) {
+
+    function chooseLeft(page) {
+        if(page === "front-page")
+            return (
+                <HomeNews />
+            )
+
+        return (
+            <Tranferencia />
+        )
+    }
+
+    function chooseRight(page) {
+        if(page === "front-page")
+            return (
+                <HomeProfile />
+            )
+
+        return (
+            <TransferHistory />
+        )
+    }
 
     return (
         <div id="home">
 
             <Navtop />
-            {/* <Navleft /> */}
 
             <div className="home-body">
-                <div className="news">
-                    <h2>Últimas Notificações</h2>
 
-                    <Notification />
-                    <Notification />
-                    <Notification />
-                    <Notification />
-
-                    {/* 
-                        pesquisar como expor lista d json
-                        tem no occurrence
-                    */}
-
+                <div className="left-side">
+                    {chooseLeft(props.page)}
                 </div>
 
-                <div className="profile">
-                    <h1>- perfil -</h1>
+                <div className="right-side">
+                    {chooseRight(props.page)}
                 </div>
+
             </div>
             
         </div>
