@@ -7,7 +7,7 @@ export default function TransferHistory(props) {
     return (
         <div className="transfer-history">
 
-            <h2>Histórico de transferências</h2>
+            <h2>Últimas Transações</h2>
 
             {/* 
                 expor lista d json

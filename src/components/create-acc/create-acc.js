@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import './create-acc.css'
 
-import { Button, TextField } from '@material-ui/core' // InputAdornment
+import { Button, TextField, InputAdornment } from '@material-ui/core' // InputAdornment
 
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import EmailIcon from '@material-ui/icons/Email';
-// import LockIcon from '@material-ui/icons/Lock';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
 
 class CreateAcc extends Component {
 
@@ -94,13 +94,13 @@ class CreateAcc extends Component {
                                 required
                                 value={this.state.name}
                                 onChange={(e) => this.handleTextFieldChange("name", e)}
-                                // InputProps={{
-                                //     startAdornment: (
-                                //         <InputAdornment position="start">
-                                //         <AccountCircleIcon />
-                                //         </InputAdornment>
-                                //     )
-                                // }} 
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                        <AccountCircleIcon />
+                                        </InputAdornment>
+                                    )
+                                }} 
                             />
                         </div>
 
@@ -115,13 +115,13 @@ class CreateAcc extends Component {
                                 required
                                 value={this.state.email}
                                 onChange={(e) => this.handleTextFieldChange("email", e)}
-                                // InputProps={{
-                                //     startAdornment: (
-                                //         <InputAdornment position="start">
-                                //         <EmailIcon />
-                                //         </InputAdornment>
-                                //     )
-                                // }} 
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                        <EmailIcon />
+                                        </InputAdornment>
+                                    )
+                                }} 
                             />
                         </div>
 
@@ -136,13 +136,13 @@ class CreateAcc extends Component {
                                 required
                                 value={this.state.password}
                                 onChange={(e) => this.handleTextFieldChange("password", e)}
-                                // InputProps={{
-                                //     startAdornment: (
-                                //         <InputAdornment position="start">
-                                //         <LockIcon />
-                                //         </InputAdornment>
-                                //     )
-                                // }}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                        <LockIcon />
+                                        </InputAdornment>
+                                    )
+                                }}
                             />
                         </div>
 
@@ -155,15 +155,15 @@ class CreateAcc extends Component {
                                 placeholder="Confirme a senha"
                                 type="password"
                                 required
-                                value={this.state.password}
+                                value={this.state.repPassword}
                                 onChange={(e) => this.handleTextFieldChange("repPassword", e)}
-                                // InputProps={{
-                                //     startAdornment: (
-                                //         <InputAdornment position="start">
-                                //         <LockIcon />
-                                //         </InputAdornment>
-                                //     )
-                                // }}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                        <LockIcon />
+                                        </InputAdornment>
+                                    )
+                                }}
                             />
                         </div>
 
