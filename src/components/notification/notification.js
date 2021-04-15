@@ -15,6 +15,8 @@ export default function Notification(props) {
                 <p className="not-from">
                     Pessoa 1 - Arroba1
                 </p>
+
+                <br />
                 
                 <p className="not-to">
                     Transferiu 30 mangos para Arroba2

@@ -20,7 +20,7 @@ export default function Menu(props) {
             </MenuItem>
 
             <MenuItem
-                whereTo="home/transfer-page"
+                whereTo="transfer"
                 leftIcon={<PaymentIcon />}
                 >Realizar Transferência
             </MenuItem>
@@ -32,8 +32,6 @@ export default function Menu(props) {
                 >Sair
             </MenuItem>
 
-
-            {/* <MenuItem>My Profile</MenuItem> */}
         </div>
     )
 }

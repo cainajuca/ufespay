@@ -9,11 +9,6 @@ export default function TransferHistory(props) {
 
             <h2>Últimas Transações</h2>
 
-            {/* 
-                expor lista d json
-                tem no occurrence
-            */}
-
         </div>
     )
 }

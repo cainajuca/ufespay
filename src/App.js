@@ -3,15 +3,14 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import LandingPage from './views/landing-page/landing-page'
-import Home from './views/home/home'
+import Home from './views/home'
+import Transfer from './views/transfer'
 
 import ProtectedRoute from './components/privateRoute'
 
 function App() {
-
-  const key = "autoriza"
   
-  const [auth, setAuth] = useState(JSON.parse(localStorage.getItem(key) || "false"))
+  const [auth, setAuth] = useState(JSON.parse(localStorage.getItem("autoriza") || "false"))
   
   function authCallback(login) {
 
@@ -20,7 +19,7 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem(key, auth)
+    localStorage.setItem("autoriza", auth)
   }, [auth])
 
   /*
@@ -74,12 +73,12 @@ function App() {
 
           <ProtectedRoute 
             path="home" 
-            element={<Home page="front-page"/>} 
+            element={<Home />} 
             authorize={auth}/>
 
           <ProtectedRoute
-            path="home/transfer-page" 
-            element={<Home page="transfer-page"/>} 
+            path="transfer" 
+            element={<Transfer />} 
             authorize={auth}/>
 
         </Routes>
