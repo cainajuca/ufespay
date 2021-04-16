@@ -2,34 +2,195 @@ import React from 'react';
 
 import './styles.css'
 
-import Notification from '../notification/notification'
-import TransactionCard from '../transaction-card'
+import TransferCard from '../transfer-card'
 
 export default function News(props) {
 
-    const url1 = "https://instagram.fvix1-1.fna.fbcdn.net/v/t51.2885-19/s320x320/106703191_286526825887099_8976634473752735876_n.jpg?tp=1&_nc_ht=instagram.fvix1-1.fna.fbcdn.net&_nc_ohc=1XwLaA_XcJIAX_BsIkT&tn=GulQFohpfyw9_kYe&edm=ABfd0MgAAAAA&ccb=7-4&oh=0c1063f4e2238ca6bddb3d42fd11fae4&oe=609D358A&_nc_sid=7bff83"
-    const url2 = "https://instagram.fvix1-1.fna.fbcdn.net/v/t51.2885-19/s320x320/65272082_456845131770016_6898801497056739328_n.jpg?tp=1&_nc_ht=instagram.fvix1-1.fna.fbcdn.net&_nc_ohc=H-CaldTOdp4AX8KeE-6&edm=ABfd0MgAAAAA&ccb=7-4&oh=73e917943b4ec1c6b3b8f1a4166fddf9&oe=609CD6D8&_nc_sid=7bff83"
+    // message: { type: String },
+    // emitter: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    // receiver: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    // likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+
+    const users = [
+        {
+            name: 'Cainã Jucá',
+            email: 'cainajuca@gmail.com',
+            balance: 1500.49,
+            password: '123',
+        },
+        {
+            name: 'Luma Pontes',
+            email: 'lumap@gmail.com',
+            balance: 1500.49,
+            password: '123',
+        },
+        {
+            name: 'Enrico Zardo',
+            email: 'zenf@gmail.com',
+            balance: 1500.49,
+            password: '123',
+        },
+        {
+            name: 'Daniel Frasson',
+            email: 'frason@gmail.com',
+            balance: 1500.49,
+            password: '123',
+        },
+        {
+            name: 'Daniel Barros',
+            email: 'varetao@gmail.com',
+            balance: 1500.49,
+            password: '123',
+        }
+    ]
+
+    const transactions = [
+        {
+            value: 10,
+            message: "tu sabe ja",
+            emitter: users[0],
+            receiver: users[1],
+            likes: [
+                users[0],
+                users[3],
+                users[4],
+            ],
+            comments: [
+                {
+                    text: "aí sim. gostei",
+                    author: users[2],
+                },
+                {
+                    text: "verdade",
+                    author: users[3],
+                },
+            ],
+        },
+        {
+            value: 332.89,
+            message: "toma seu dinhero",
+            emitter: users[2],
+            receiver: users[0],
+            likes: [
+                users[4],
+                users[2],
+            ],
+            comments: [
+                {
+                    text: "um dia da caça",
+                    author: users[1],
+                },
+                {
+                    text: "o outro do caçador",
+                    author: users[0],
+                },
+            ],
+        },
+        {
+            value: 82.5,
+            message: "dclpa a demora ae",
+            emitter: users[4],
+            receiver: users[3],
+            likes: [
+                users[0],
+                users[2],
+                users[1],
+            ],
+            comments: [
+                {
+                    text: "rlx man",
+                    author: users[3],
+                },
+                {
+                    text: "nem sabia",
+                    author: users[1],
+                },
+            ],
+        },
+        {
+            value: 0.2,
+            message: "manda a goiaba",
+            emitter: users[3],
+            receiver: users[2],
+            likes: [
+                users[0],
+                users[3],
+                users[4],
+            ],
+            comments: [
+                {
+                    text: "ta barata",
+                    author: users[1],
+                },
+                {
+                    text: "verdade",
+                    author: users[0],
+                },
+            ],
+        },
+        {
+            value: 2.5,
+            message: "bom dia",
+            emitter: users[0],
+            receiver: users[4],
+            likes: [
+            ],
+            comments: [
+                {
+                    text: "bom dia",
+                    author: users[4],
+                },
+                {
+                    text: "ué",
+                    author: users[2],
+                },
+                {
+                    text: "amem",
+                    author: users[1],
+                },
+            ],
+        },
+        {
+            value: 30,
+            message: "doação",
+            emitter: users[0],
+            receiver: users[2],
+            likes: [
+                users[0],
+                users[1],
+                users[2],
+                users[3],
+                users[4],
+            ],
+            comments: [
+                {
+                    text: "valeu brigado",
+                    author: users[2],
+                },
+                {
+                    text: "omilde",
+                    author: users[4],
+                },
+            ],
+        },
+    ]
 
     return (
         <div className="news">
 
             <h2>Últimas Notificações</h2>
 
-            <div className="notification-list">
-                <Notification />
-                <Notification />
-                <TransactionCard url={url1}/>
-                <TransactionCard url={url2}/>
-                <TransactionCard url={url2}/>
-                <Notification />
-            </div>
-                
-
-            {/* 
-                expor lista d json
-                tem no occurrence
-            */}
-
+            <div className="transfer-list">
+                {transactions.map((event, index) => (
+                    <ul key={index}>
+                        <div id="event">
+                            <TransferCard transaction={event}/>
+                        </div>
+                    </ul>
+                ))}
+            </div>                
+            
         </div>
     )
 }

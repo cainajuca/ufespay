@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'bold'
     },
 }));
-  
+
 
 
 export default function Profile(props) {
@@ -43,18 +43,14 @@ export default function Profile(props) {
 
     const [user, setUser] = useState({
         name: 'Cainã Jucá',
-        username: '@cainacj',
         email: 'cainajuca@gmail.com',
+        balance: 200300,
         password: '123',
-        followers: 19,
-        following: 15,
     })
 
     // profile variables
     const [name, setName] = useState(user.name)
-    const [username, setUsername] = useState(user.username)
     const [email, setEmail] = useState(user.email)
-
 
     const [password, setPassword] = useState()
     const [repPassword, setRepPassword] = useState()
@@ -63,41 +59,18 @@ export default function Profile(props) {
     const [changePassword, setChangePassword] = useState(false)
 
     function erasePasswords() {
-        setPassword()
-        setRepPassword()
-        setCurrentPassword()
+        setPassword('')
+        setRepPassword('')
+        setCurrentPassword('')
     }
 
     function savePasswordChanges(e) {
-
-        // mudar esses ifs p try catch
-        // try {
-        //     console.log('oi'); // pode lançar três tipos de exceções
-        // } catch (e if e instanceof TypeError) {
-        //     // declarações para manipular exceções TypeError
-        // } catch (e if e instanceof RangeError) {
-        //     // declarações para manipular exceções RangeError
-        // }
-
-        /* 
-        erro:
-            1 - errar APENAS o repPassword
-            2 - Salvar e Receber alerta de repPassword incorreto
-            3 - Acertar repPassword
-            4 - Senha Atual Incorreta
-            5 - Reescrever senha atual corretamente
-            6 - Salvar
-            7 - Senha do usuario vira vazia
-            
-            _ erasePasswords() apaga os estados das senhas mas o value no inputtext não é atualizado pq nao é gerado o onChange (?)
-        
-        */
         if(currentPassword === user.password) {
 
             if(password === repPassword) {
                 
                 setUser({...user,
-                        password: password
+                    password: password
                 })
                 
                 setChangePassword(!changePassword)
@@ -114,12 +87,12 @@ export default function Profile(props) {
         e.preventDefault()
     }
 
-
     function saveProfileChanges(e) {
 
-
-
-
+        setUser({...user,
+            name: name,
+            email: email
+        })
 
         setEdit(!edit)
 
@@ -133,7 +106,7 @@ export default function Profile(props) {
                 !edit ?
                 (
                     
-                    <div>
+                    <div className="show-profile">
                         <h1>Seu Perfil</h1>
 
                         <Avatar aria-label="recipe" className={classes.avatar} id="avatar">
@@ -145,26 +118,11 @@ export default function Profile(props) {
                         <div className="names">
                             <h3>{user.name}</h3>
 
-                            <h3>{user.username}</h3>
+                            <h3>{user.email}</h3>
 
-                            <h3>{user.password}</h3>
+                            <h1>{user.balance.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h1>
+                            
                         </div>
-
-                        <hr />
-
-                        <div className="numbers">
-                            <div className="follow">
-                                <p className="follow-number">{user.followers}</p>
-                                <p className="follow-word">SEGUIDORES</p>
-                            </div>
-
-                            <div className="follow">
-                                <p className="follow-number">{user.following}</p>
-                                <p className="follow-word">SEGUINDO</p>
-                            </div>
-                        </div>
-
-                        <hr />
 
                         <Button 
                             className="Button"
@@ -181,7 +139,7 @@ export default function Profile(props) {
                                 <Button 
                                     className="Button"
                                     variant="contained"
-                                    color="terciary"
+                                    color="default"
                                     type="button"
                                     onClick={() => {setChangePassword(!changePassword)}}
                                     
@@ -295,7 +253,7 @@ export default function Profile(props) {
                 )                    
                 :
                 (
-                    <div>
+                    <div className="edit-profile">
                         <h1>Editar Perfil</h1>
 
                         <form onSubmit = {saveProfileChanges}>
@@ -318,27 +276,6 @@ export default function Profile(props) {
                                             </InputAdornment>
                                         )
                                     }}
-                                />
-                            </div>
-
-                            <div className="TextField">
-                                <TextField
-                                    className="TextField"
-                                    variant="filled"
-                                    color="secondary"
-                                    label="Usuario"
-                                    placeholder="Usuario"
-                                    type="text"
-                                    required
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <AccountCircleIcon />
-                                            </InputAdornment>
-                                        )
-                                    }} 
                                 />
                             </div>
 
