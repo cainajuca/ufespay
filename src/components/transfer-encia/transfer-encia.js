@@ -24,10 +24,6 @@ export default function Transferencia(props) {
             <h2>Nova Transação</h2>
 
 
-            {/* 
-                expor lista d json
-                tem no occurrence
-            */}
 
         </div>
     )

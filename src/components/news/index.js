@@ -6,12 +6,7 @@ import TransferCard from '../transfer-card'
 
 export default function News(props) {
 
-    // message: { type: String },
-    // emitter: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    // receiver: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    // likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-
+    
     const users = [
         {
             name: 'Cainã Jucá',

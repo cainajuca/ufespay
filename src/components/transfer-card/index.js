@@ -89,11 +89,6 @@ export default function TransferCard(props) {
                 {props.transaction.emitter.name[0]}
             </Avatar>
             }
-            action={
-            <IconButton aria-label="settings">
-                <MoreVertIcon />
-            </IconButton>
-            }
             title={props.transaction.emitter.name}
             subheader={props.transaction.emitter.email}
         />
@@ -132,16 +127,6 @@ export default function TransferCard(props) {
         </IconButton>
 
       </CardActions>
-
-        {/* 
-          | 'initial'
-          | 'inherit'
-          | 'primary'
-          | 'secondary'
-          | 'textPrimary'
-          | 'textSecondary'
-          | 'error'
-        */}
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
