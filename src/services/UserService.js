@@ -1,4 +1,4 @@
-import api from  './api';
+import api from './api';
 
 export const createUser = async (name, email, password) => {
   return api.post('/user', { name, email, password }).then(resp => resp.data);

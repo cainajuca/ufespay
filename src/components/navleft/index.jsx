@@ -29,15 +29,19 @@ export default function SwipeableTemporaryDrawer() {
     right: false,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  const toggleDrawer = (anchor, open) => event => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
       return;
     }
 
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
+  const list = anchor => (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
@@ -49,7 +53,9 @@ export default function SwipeableTemporaryDrawer() {
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -58,7 +64,9 @@ export default function SwipeableTemporaryDrawer() {
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -66,12 +74,9 @@ export default function SwipeableTemporaryDrawer() {
     </div>
   );
 
-
-
-
   return (
     <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
+      {['left', 'right', 'top', 'bottom'].map(anchor => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <SwipeableDrawer
@@ -87,31 +92,3 @@ export default function SwipeableTemporaryDrawer() {
     </div>
   );
 }
-
-// import React from 'react'
-
-// import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-// import Button from '@material-ui/core/Button';
-
-// function Navleft() {
-
-//     return(
-//         <div>
-//             {['left', 'right', 'top', 'bottom'].map((anchor) => (
-//                 <React.Fragment key={anchor}>
-//                 <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-//                 <SwipeableDrawer
-//                     anchor={anchor}
-//                     open={state[anchor]}
-//                     onClose={toggleDrawer(anchor, false)}
-//                     onOpen={toggleDrawer(anchor, true)}
-//                 >
-//                     {list(anchor)}
-//                 </SwipeableDrawer>
-//                 </React.Fragment>
-//             ))}
-//         </div>
-//     )
-// }
-
-// export default Navleft
