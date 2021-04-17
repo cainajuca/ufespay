@@ -2,9 +2,9 @@ import React from 'react';
 
 import '../modal.css'
 
-import Navtop from '../../components/navtop/navtop'
-import Tranferencia from '../../components/transfer-encia/transfer-encia'
-import TransferHistory from '../../components/transfer-history/transfer-history'
+import Navtop from '../../components/navtop'
+import Tranferencia from '../../components/transfer-encia'
+import TransferHistory from '../../components/transfer-history'
 
 export default function Transaction() {
 

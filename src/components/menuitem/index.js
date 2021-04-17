@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './menuitem.css'
+import './styles.css'
 
 export default function MenuItem(props) {
 

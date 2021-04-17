@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './transfer-encia.css'
+import './styles.css'
 
 export default function Transferencia(props) {
 

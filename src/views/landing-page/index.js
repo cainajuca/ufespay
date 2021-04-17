@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './landing-page.css'
+import './styles.css'
 
-import Login from '../../components/login/login'
-import CreateAcc from '../../components/create-acc/create-acc'
+import Login from '../../components/login'
+import CreateAcc from '../../components/create-acc'
 
 function LandingPage(props) {
 

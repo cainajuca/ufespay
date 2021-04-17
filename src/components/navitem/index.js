@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './navitem.css'
+import './styles.css'
 
 export default function NavItem(props) {
 

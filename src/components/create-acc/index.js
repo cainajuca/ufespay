@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './create-acc.css'
+import './styles.css'
 
 import { Button, TextField, InputAdornment } from '@material-ui/core'
 

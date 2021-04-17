@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../modal.css'
 
-import Navtop from '../../components/navtop/navtop'
+import Navtop from '../../components/navtop'
 import News from '../../components/news'
 import Profile from '../../components/profile'
 

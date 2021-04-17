@@ -1,9 +1,9 @@
 import React from 'react';
 
-import NavItem from '../navitem/navitem'
-import Menu from '../menu/menu'
+import NavItem from '../navitem'
+import Menu from '../menu'
 
-import './navtop.css'
+import './styles.css'
 
 import MenuIcon from '@material-ui/icons/Menu';
 

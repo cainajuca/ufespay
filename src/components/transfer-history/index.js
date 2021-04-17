@@ -2,7 +2,7 @@ import React from 'react';
 
 import TransferCard from '../transfer-card'
 
-import './transfer-history.css'
+import './styles.css'
 
 export default function TransferHistory(props) {
 
