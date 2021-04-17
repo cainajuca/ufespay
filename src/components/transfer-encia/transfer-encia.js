@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './transfer-encia.css'
 
 export default function Transferencia(props) {
 
-    const [name, setName] = useState()
-    const [value, setValue] = useState()
-    const [message, setMessage] = useState()
+    // const [name, setName] = useState()
+    // const [value, setValue] = useState()
+    // const [message, setMessage] = useState()
 
-    function handleSubmit() {
+    // function handleSubmit() {
 
-    }
+    // }
 
-    function handleTextFieldChange() {
+    // function handleTextFieldChange() {
         
-    }
+    // }
 
     return (
         <div className="transfer-encia">

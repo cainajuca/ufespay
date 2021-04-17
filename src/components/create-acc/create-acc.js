@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './create-acc.css'
 
-import { Button, TextField, InputAdornment } from '@material-ui/core' // InputAdornment
+import { Button, TextField, InputAdornment } from '@material-ui/core'
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import EmailIcon from '@material-ui/icons/Email';
@@ -97,7 +97,7 @@ class CreateAcc extends Component {
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
-                                        <AccountCircleIcon />
+                                            <AccountCircleIcon />
                                         </InputAdornment>
                                     )
                                 }} 
@@ -118,7 +118,7 @@ class CreateAcc extends Component {
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
-                                        <EmailIcon />
+                                            <EmailIcon />
                                         </InputAdornment>
                                     )
                                 }} 
@@ -139,7 +139,7 @@ class CreateAcc extends Component {
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
-                                        <LockIcon />
+                                            <LockIcon />
                                         </InputAdornment>
                                     )
                                 }}
@@ -160,7 +160,7 @@ class CreateAcc extends Component {
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
-                                        <LockIcon />
+                                            <LockIcon />
                                         </InputAdornment>
                                     )
                                 }}
