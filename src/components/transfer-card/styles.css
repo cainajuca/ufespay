@@ -13,3 +13,11 @@ p {
   flex:1;
   margin-right: 20px;
 }
+
+#comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50px;
+}

@@ -4,6 +4,7 @@ import './create-acc.css';
 
 import { Button, TextField } from '@material-ui/core';
 import { createUser } from '../../services/UserService';
+import { fireToastAlert } from '../../services/AlertService';
 
 const CreateAcc = () => {
   const [name, setName] = useState('');
@@ -14,7 +15,14 @@ const CreateAcc = () => {
   const handleSubmit = useCallback(
     event => {
       event.preventDefault(); // evitar que abra uma nova pagina
-      createUser(name, email, password);
+      createUser(name, email, password).then(() => {
+        setName('');
+        setEmail('');
+        setPassword('');
+        setRepPassword('');
+
+        fireToastAlert('success', 'Cadastro realizado com sucesso!');
+      });
     },
     [name, email, password],
   );

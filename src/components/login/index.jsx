@@ -13,12 +13,12 @@ import { useAuth } from '../../hooks/auth';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { logIn } = useAuth();
   const history = useHistory();
 
   const handleSubmit = event => {
     event.preventDefault();
-    login(email, password).then(() => history.push('/home'));
+    logIn(email, password).then(() => history.push('/home'));
   };
 
   return (

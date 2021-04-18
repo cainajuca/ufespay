@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import './styles.css';
 
@@ -9,6 +9,8 @@ import Avatar from '@material-ui/core/Avatar';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth } from '../../hooks/auth';
+import { updateUser } from '../../services/UserService';
+import { fireToastAlert } from '../../services/AlertService';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -32,22 +34,42 @@ const useStyles = makeStyles(() => ({
 
 export default function Profile() {
   const classes = useStyles();
-  const { user } = useAuth();
+  const { user, refreshUser } = useAuth();
 
   const [edit, setEdit] = useState(false);
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const balance = 100;
   const [password, setPassword] = useState();
   const [repPassword, setRepPassword] = useState();
   const [currentPassword, setCurrentPassword] = useState();
 
-  // const [changePassword, setChangePassword] = useState(false);
+  const erasePassword = () => {
+    setPassword(undefined);
+    setRepPassword(undefined);
+    setCurrentPassword(undefined);
+  };
 
-  function saveProfileChanges(e) {
-    e.preventDefault();
-  }
+  const handleCancel = () => {
+    setEdit(false);
+    erasePassword();
+  };
+
+  const saveProfileChanges = useCallback(
+    e => {
+      e.preventDefault();
+      if (password !== repPassword) {
+        fireToastAlert('error', 'Password confirmation do not match.');
+        return;
+      }
+      updateUser(name, email, password, currentPassword).then(() => {
+        handleCancel();
+        fireToastAlert('success', 'User updated.');
+        refreshUser();
+      });
+    },
+    [name, email, password, repPassword, currentPassword],
+  );
 
   return (
     <div className="profile-container">
@@ -65,7 +87,7 @@ export default function Profile() {
             <h3>{user.email}</h3>
 
             <h1>
-              {balance.toLocaleString('pt-br', {
+              {user.wallet.balance.toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               })}
@@ -125,9 +147,8 @@ export default function Profile() {
                 label="Senha"
                 placeholder="Senha"
                 type="password"
-                required
-                value={password}
-                onChange={e => setPassword(e.target.value)}
+                value={currentPassword}
+                onChange={e => setCurrentPassword(e.target.value)}
               />
             </div>
 
@@ -139,9 +160,10 @@ export default function Profile() {
                 label="Nova Senha"
                 placeholder="Nova Senha"
                 type="password"
-                required
-                value={currentPassword}
-                onChange={e => setCurrentPassword(e.target.value)}
+                disabled={!currentPassword}
+                required={!!currentPassword}
+                value={password}
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
 
@@ -153,7 +175,8 @@ export default function Profile() {
                 label="Repita a Senha"
                 placeholder="Repita a Senha"
                 type="password"
-                required
+                disabled={!currentPassword}
+                required={!!currentPassword}
                 value={repPassword}
                 onChange={e => setRepPassword(e.target.value)}
               />
@@ -176,9 +199,7 @@ export default function Profile() {
                 variant="contained"
                 color="primary"
                 type="button"
-                onClick={() => {
-                  setEdit(!edit);
-                }}
+                onClick={handleCancel}
               >
                 Cancelar
               </Button>

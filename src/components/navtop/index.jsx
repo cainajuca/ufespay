@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Money, AttachMoney } from '@material-ui/icons';
+import { Home, ExitToApp, AttachMoney } from '@material-ui/icons';
 
 import './navtop.css';
 import { useAuth } from '../../hooks/auth';
@@ -20,11 +19,11 @@ export default function Navtop() {
           <span className="action-label">Home</span>
         </Link>
         <Link className="action" to="/transfer">
-          <Money />
+          <AttachMoney />
           <span className="action-label">Pagar</span>
         </Link>
         <button type="button" className="action" onClick={logOut}>
-          <AttachMoney />
+          <ExitToApp />
           <span className="action-label">Log Out</span>
         </button>
       </div>

@@ -10,6 +10,14 @@ export const fireToastAlert = (type, text) => {
     timer: 3000,
     position: 'bottom-end',
     title: text,
-    background: type === 'error' ? '#ffbbbb' : '#bbbbff',
+    background: type === 'error' ? '#ffbbbb' : '#bbffbb',
   });
+};
+
+export const fireConfimationAlert = async text => {
+  const { isConfirmed } = await MySwal.fire({
+    text,
+    showCancelButton: true,
+  });
+  return isConfirmed;
 };
