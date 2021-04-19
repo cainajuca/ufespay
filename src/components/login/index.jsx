@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/no-unused-state */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 

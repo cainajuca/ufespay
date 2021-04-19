@@ -30,6 +30,7 @@
       "import/prefer-default-export": "off",
       "prettier/prettier": "error",
       "react/prop-types": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "react/jsx-props-no-spreading": "off"
     }
 }

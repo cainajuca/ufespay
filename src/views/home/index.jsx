@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-
-// import '../modal.css';
 import './home.css';
 
 import News from '../../components/news';

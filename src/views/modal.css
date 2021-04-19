@@ -1,6 +1,5 @@
 .body {
     display: flex;
-    /* grid-template-columns: 1fr 1fr; */
 }
 
 .body .left-side {

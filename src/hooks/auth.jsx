@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../services/api';
