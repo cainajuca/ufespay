@@ -19,7 +19,8 @@ import {
   toggleLike,
 } from '../../services/TransactionService';
 
-import './styles.css';
+import './transfer-card.css';
+
 import { useAuth } from '../../hooks/auth';
 
 const useStyles = makeStyles(theme => ({

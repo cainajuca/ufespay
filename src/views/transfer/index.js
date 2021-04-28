@@ -13,7 +13,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AttachMoney } from '@material-ui/icons';
 
-import './style.css';
+import './transfer.css';
+
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 import { getUsers } from '../../services/UserService';
